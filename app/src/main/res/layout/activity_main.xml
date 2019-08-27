@@ -21,11 +21,11 @@
         android:layout_height="wrap_content"/>
 
     <Button
-        android:id="@+id/btn_pricing"
+        android:id="@+id/btn_courses"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="Pricing"
+        android:text="Courses"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btn_login"
@@ -54,6 +54,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btn_trainers"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btn_pricing" />
+        app:layout_constraintStart_toEndOf="@+id/btn_courses" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

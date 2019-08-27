@@ -19,8 +19,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         //Intent to move to the shopping list details
-        btn_pricing.setOnClickListener {
-            val pricingIntent = Intent(this, PricingActivity::class.java)
+        btn_courses.setOnClickListener {
+            val pricingIntent = Intent(this, CoursesActivity::class.java)
             startActivity(pricingIntent)
         }
 

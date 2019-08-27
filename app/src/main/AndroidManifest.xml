@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activities.LoginActivity"></activity>
-        <activity android:name=".activities.PricingActivity" />
+        <activity android:name=".activities.CoursesActivity" />
         <activity android:name=".activities.TrainerListActivity" />
         <activity android:name=".activities.MainActivity">
             <intent-filter>
