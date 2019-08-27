@@ -3,7 +3,9 @@ package com.patrickchow.anywherefitness.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.patrickchow.anywherefitness.R
+import com.patrickchow.anywherefitness.repositories.UsersRepository
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -11,6 +13,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        Log.i("${UsersRepository.usersList}", "Test")
 
         //Intent to move to the list of trainer details
         btn_trainers.setOnClickListener {

@@ -7,9 +7,6 @@ import com.patrickchow.anywherefitness.model.UsersModel
 class UsersRepository {
     companion object{
         //Create a mutableList and add a sample object to it.
-        var usersList = mutableListOf<UsersModel>(
-            UsersModel("Test Name", "Test Name", "Test email",
-                        "Test password", "Test Type")
-        )
+        var usersList = mutableListOf<UsersModel>()
     }
 }

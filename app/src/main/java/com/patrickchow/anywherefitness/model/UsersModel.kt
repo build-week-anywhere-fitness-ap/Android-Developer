@@ -5,7 +5,8 @@ package com.patrickchow.anywherefitness.model
 data class UsersModel(
     val firstName: String,
     val lastName: String,
-    val emailAddress: String,
+    val userName: String,
     var password: String,
-    var typeOfUser: String
+    val client: Boolean = false, //should be set to True if the user is a client
+    var instructor: Boolean = false //should be set to True if the user is an instructor
 )
