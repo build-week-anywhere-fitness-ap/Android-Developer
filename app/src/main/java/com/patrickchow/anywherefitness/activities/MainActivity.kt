@@ -1,7 +1,8 @@
-package com.patrickchow.anywherefitness
+package com.patrickchow.anywherefitness.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.patrickchow.anywherefitness.R
 
 class MainActivity : AppCompatActivity() {
 
