@@ -6,8 +6,8 @@ import com.patrickchow.anywherefitness.model.CoursesModel
 
 class CoursesRepository {
     companion object{
-        //Create a mutableList and add a single sample object to it.
-        val coursesList = mutableListOf<CoursesModel>(
+        //Create a mutableList and add a sample object to it.
+        var coursesList = mutableListOf<CoursesModel>(
             CoursesModel("Test Category", "Test Name",
                           "Test Location", "Test Time")
         )
