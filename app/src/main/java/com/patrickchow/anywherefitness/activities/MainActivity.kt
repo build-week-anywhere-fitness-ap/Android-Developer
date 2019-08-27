@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(pricingIntent)
         }
 
-        //Intent to move from homescreen to login screen.
+        //Intent to move to the Login Screen
         //Not sure if we should actually implement login or not
         btn_login.setOnClickListener {
             val loginIntent = Intent(this, LoginActivity::class.java)
