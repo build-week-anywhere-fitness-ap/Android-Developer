@@ -43,7 +43,5 @@ class LoginViewCustom (context: Context, attrs: AttributeSet?): LinearLayout(con
         addView(editViewUser)
         addView(editPassUser)
 
-        //Creates an EditText to be added to the List
-        val userNameInput = EditText(context)
     }
 }
