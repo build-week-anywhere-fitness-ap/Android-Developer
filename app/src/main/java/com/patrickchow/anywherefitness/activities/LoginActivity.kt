@@ -7,10 +7,7 @@ import com.patrickchow.anywherefitness.R
 import kotlinx.android.synthetic.main.activity_login.*
 
 /*
-
-    ***NOT SURE IF WE SHOULD ACTUALLY IMPLEMENT THIS OR NOT YET***
-    This activity will display the login screen
-
+    Displays the Login
  */
 
 class LoginActivity : AppCompatActivity() {
