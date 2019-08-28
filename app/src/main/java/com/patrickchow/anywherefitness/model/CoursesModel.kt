@@ -3,9 +3,9 @@ package com.patrickchow.anywherefitness.model
 //Data class for the courses
 
 data class CoursesModel(
-    val id: Int,
-    val courseName: String,
-    val instructor_id: Int,
-    var time: Long,
-    val courseCategory: String
+    val id: Int,    //Id for the course
+    val courseName: String,     //Name of the course
+    val instructor_id: Int,     //Instructor's Id
+    var time: Long,     //The time of the course
+    val courseCategory: String      //The type of the course
 )

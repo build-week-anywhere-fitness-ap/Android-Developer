@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LoginViewCustom">
+        <attr name="textSize" format="dimension"/>
+        <attr name ="maxLines" format="integer"/>
+        <attr name="layout_weight" format="float"/>
+        <attr name="hint" format="string"/>
+        <attr name="textColorHint" format="color"/>
+        <attr name="textStyle" format="string"/>
+    </declare-styleable>
+</resources>
