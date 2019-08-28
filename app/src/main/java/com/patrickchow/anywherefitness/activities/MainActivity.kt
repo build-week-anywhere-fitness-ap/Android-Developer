@@ -1,8 +1,9 @@
 package com.patrickchow.anywherefitness.activities
 
 import android.content.Intent
-import android.media.Image
-import android.net.Uri
+import android.graphics.ImageDecoder
+import android.graphics.drawable.AnimatedImageDrawable
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -18,6 +19,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         Log.i("${UsersRepository.usersList}", "Test")
+
+        //Animates the getting_swole gif
+        animateGif(R.drawable.getting_swole, iv_gettingSwole)
 
         //Allows the user to share the official Fitness Anywhere website
         iv_share.setOnClickListener {
@@ -56,5 +60,14 @@ class MainActivity : AppCompatActivity() {
             """.trimIndent())
         webpageShareIntent.type = "text/plain"
         startActivity(Intent.createChooser(webpageShareIntent, "Share with"))
+    }
+
+    //Animates the gif
+    private fun animateGif(image: Int, view: ImageView) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            val gifDrawable = ImageDecoder.decodeDrawable(ImageDecoder.createSource(resources, image))
+            view.setImageDrawable(gifDrawable)
+            (gifDrawable as AnimatedImageDrawable).start()
+        }
     }
 }
