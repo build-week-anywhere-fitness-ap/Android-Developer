@@ -4,10 +4,7 @@ import android.content.Context
 import android.graphics.Color
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.widget.Button
-import android.widget.EditText
-import android.widget.LinearLayout
-import android.widget.TextView
+import android.widget.*
 import androidx.core.content.ContextCompat
 import com.patrickchow.anywherefitness.R
 
@@ -25,6 +22,10 @@ class LoginViewCustom (context: Context, attrs: AttributeSet?): LinearLayout(con
         val textStyle = typedArray.getString(R.styleable.LoginViewCustom_textStyle)
         typedArray.recycle()
 
+        //Create an imageView with a logo. It should be placed on top of the login.
+        val logo = ImageView(context)
+        logo.setImageResource(R.drawable.af_logo_v3)
+
         //Create an editTextView to take in the username
         val editViewUser = EditText(context)
         editViewUser.hint = "Username"
@@ -38,6 +39,7 @@ class LoginViewCustom (context: Context, attrs: AttributeSet?): LinearLayout(con
         editPassUser.maxLines = maxLines
 
         orientation = VERTICAL
+        addView(logo)
         addView(editViewUser)
         addView(editPassUser)
 
