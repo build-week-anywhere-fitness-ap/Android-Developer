@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         CoursesRepository.createCoursesList()
         PassesRepository.createPassessList()
+        UsersRepository.createUsersList()
 
         Log.i("${UsersRepository.usersList}", "Test")
 
