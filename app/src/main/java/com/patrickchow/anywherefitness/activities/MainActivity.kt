@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
         //Intent to move to the Login Screen
         //Not sure if we should actually implement login or not
-        btn_login.setOnClickListener {
+        btn_sign_in.setOnClickListener {
             val loginIntent = Intent(this, LoginActivity::class.java)
             startActivity(loginIntent)
         }
