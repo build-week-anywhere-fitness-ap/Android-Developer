@@ -12,9 +12,9 @@ class CoursesRepository {
     companion object{
         var coursesList = mutableListOf<CoursesModel>()
         fun createCoursesList(){
-            for(i in 0 until courseName.size){
-                coursesList.add(CoursesModel(courseId[i], courseName[i],
-                                            instructor_id[i], time[i]))
+            for(index in 0 until courseName.size){
+                coursesList.add(CoursesModel(courseId[index], courseName[index],
+                                            instructor_id[index], time[index]))
             }
         }
     }

@@ -10,6 +10,7 @@ import android.util.Log
 import android.widget.ImageView
 import com.patrickchow.anywherefitness.R
 import com.patrickchow.anywherefitness.repositories.CoursesRepository
+import com.patrickchow.anywherefitness.repositories.PassesRepository
 import com.patrickchow.anywherefitness.repositories.UsersRepository
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -20,6 +21,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         CoursesRepository.createCoursesList()
+        PassesRepository.createPassessList()
 
         Log.i("${UsersRepository.usersList}", "Test")
 
