@@ -10,7 +10,7 @@ Data for the courses
     var time: Long,     //The time of the course
  */
 
-val courseId = arrayOf(
+val courseIdArray = arrayOf(
     101,
     102,
     103,
@@ -19,7 +19,7 @@ val courseId = arrayOf(
     106
 )
 
-val courseName = arrayOf(
+val courseNameArray = arrayOf(
     "Yoga",
     "Dance",
     "Cycling",
@@ -28,7 +28,7 @@ val courseName = arrayOf(
     "Barre"
 )
 
-val instructor_id = arrayOf(
+val instructor_idArray = arrayOf(
     1,
     2,
     3,
@@ -37,7 +37,7 @@ val instructor_id = arrayOf(
     6
 )
 
-val time = arrayOf(
+val timeArray = arrayOf(
     Timestamp(System.currentTimeMillis()).time,
     Timestamp(System.currentTimeMillis()).time,
     Timestamp(System.currentTimeMillis()).time,
