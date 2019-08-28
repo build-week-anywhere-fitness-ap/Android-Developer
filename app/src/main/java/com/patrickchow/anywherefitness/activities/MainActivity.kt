@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         PassesRepository.createPassessList()
-        UsersRepository.createUsersList()
+
 
         Log.i("${UsersRepository.usersList}", "Test")
 
