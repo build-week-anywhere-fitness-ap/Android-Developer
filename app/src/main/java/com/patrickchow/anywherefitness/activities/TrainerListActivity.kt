@@ -22,7 +22,7 @@ class TrainerListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_trainer_list)
 
-        setTitle("Trainer Details")
+        setTitle("Trainer Details ")
         UsersRepository.createUsersList()
 
         rv_instructors.apply {
