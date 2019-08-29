@@ -1,6 +1,9 @@
 package com.patrickchow.anywherefitness.adapters
 
+import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +13,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.patrickchow.anywherefitness.R
 import com.patrickchow.anywherefitness.activities.LoginActivity
@@ -76,10 +80,14 @@ class CoursesRecyclerAdapter(val context: Context, val coursesList:MutableList<C
             //When a user clicks on a button to register for, the registered class is put into the list
             courses_register.setOnClickListener {
                 if(LoginActivity.isLoggedIn == false){
-                    makeToast(context)
-                RegisteredCoursesActivity.registeredCourses.add(CoursesModel(coursesModel.id, coursesModel.courseName, coursesModel.benefits,
-                                                                             coursesModel.instructor_id, coursesModel.time, coursesModel.image))
+                    loginToast(context)
+
                 }
+                else{
+                    addedToast(context)
+                    RegisteredCoursesActivity.registeredCourses.add(CoursesModel(coursesModel.id, coursesModel.courseName, coursesModel.benefits,
+                        coursesModel.instructor_id, coursesModel.time, coursesModel.image))
+                    }
                 }
             }
         }
@@ -88,7 +96,18 @@ class CoursesRecyclerAdapter(val context: Context, val coursesList:MutableList<C
         val animation: Animation = AnimationUtils.loadAnimation(viewToAnimate.context, R.anim.abc_fade_in)
         viewToAnimate.startAnimation(animation)
     }
-    fun makeToast(context: Context) {
-        val toast = Toast.makeText(context, "mistake", Toast.LENGTH_SHORT)
+
+    //If the user isn't logged in, show a message asking the user to log in.
+    fun loginToast(context: Context) {
+        val toast = Toast.makeText(context, "Please Login first before registering for a class", Toast.LENGTH_SHORT)
         toast.show()
-}
+    }
+
+    //If the user is logged in, show a message that the user has registered for the course
+    fun addedToast(context: Context){
+        val toast = Toast.makeText(context, "You have registered for the course successfully", Toast.LENGTH_SHORT)
+        toast.show()
+    }
+
+
+
