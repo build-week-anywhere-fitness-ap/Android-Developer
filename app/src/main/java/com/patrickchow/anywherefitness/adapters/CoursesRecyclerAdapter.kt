@@ -90,11 +90,28 @@ class CoursesRecyclerAdapter(val context: Context, val show: Boolean, val course
                     loginToast(context)
                 }
 
+                //Check to see if the user is already registered for the course or not.
+                var alreadyRegistered = false
+                for(index in 0 until RegisteredCoursesActivity.registeredCourses.size){
+                    if(RegisteredCoursesActivity.registeredCourses[index].courseName == coursesModel.courseName)
+                        alreadyRegistered = true
+                }
+
+                if(alreadyRegistered){
+                    alreadyAddedToast(context)
+                }
+
                 else{
-                    //Display a toast telling the user they have successfully registered for the course
-                    addedToast(context, coursesModel.courseName, coursesModel.time)
-                    RegisteredCoursesActivity.registeredCourses.add(CoursesModel(coursesModel.id, coursesModel.courseName, coursesModel.benefits,
-                        coursesModel.instructor_id, coursesModel.time, coursesModel.image))
+                    if(LoginActivity.isLoggedIn) {
+                        //Display a toast telling the user they have successfully registered for the course
+                        addedToast(context, coursesModel.courseName, coursesModel.time)
+                        RegisteredCoursesActivity.registeredCourses.add(
+                            CoursesModel(
+                                coursesModel.id, coursesModel.courseName, coursesModel.benefits,
+                                coursesModel.instructor_id, coursesModel.time, coursesModel.image
+                            )
+                        )
+                    }
                     }
                 }
             }
@@ -115,5 +132,10 @@ class CoursesRecyclerAdapter(val context: Context, val show: Boolean, val course
     fun addedToast(context: Context, courseName: String, courseTime: String){
         val toast = Toast.makeText(context, "You have successfully registered for the course $courseName\n" +
                                                  "See you on the $courseTime", Toast.LENGTH_LONG)
+        toast.show()
+    }
+
+    fun alreadyAddedToast(context: Context){
+        val toast = Toast.makeText(context, "You are already registered for that course", Toast.LENGTH_SHORT)
         toast.show()
     }
