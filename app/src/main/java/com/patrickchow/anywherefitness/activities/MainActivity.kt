@@ -7,8 +7,11 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.ImageView
+import androidx.appcompat.app.AlertDialog
 import com.patrickchow.anywherefitness.R
+import com.patrickchow.anywherefitness.model.CoursesModel
 import com.patrickchow.anywherefitness.repositories.CoursesRepository
 import com.patrickchow.anywherefitness.repositories.PassesRepository
 import com.patrickchow.anywherefitness.repositories.UsersRepository
@@ -20,6 +23,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        CoursesRepository.createCoursesList()
+        UsersRepository.createUsersList()
         PassesRepository.createPassessList()
 
 
@@ -33,6 +38,11 @@ class MainActivity : AppCompatActivity() {
             mainWebpageShare()
         }
 
+        btn_registered_courses.setOnClickListener {
+            val registeredCoursesIntent = Intent(this, RegisteredCoursesActivity::class.java)
+            startActivity(registeredCoursesIntent)
+        }
+
         //Intent to move to the list of trainer details
         btn_trainers.setOnClickListener {
             val trainerIntent = Intent(this, TrainerListActivity::class.java)
@@ -41,8 +51,9 @@ class MainActivity : AppCompatActivity() {
 
         //Intent to move to the shopping list details
         btn_courses.setOnClickListener {
-            val pricingIntent = Intent(this, CoursesActivity::class.java)
-            startActivity(pricingIntent)
+                val pricingIntent = Intent(this, CoursesActivity::class.java)
+                startActivity(pricingIntent)
+            //}
         }
 
         //Intent to move to the Login Screen
@@ -75,4 +86,16 @@ class MainActivity : AppCompatActivity() {
             (gifDrawable as AnimatedImageDrawable).start()
         }
     }
+
+    //If a user is logged in, change the visibility of the log in button to invisible
+    //and set the visibility of registered courses button to visible
+    override fun onResume() {
+        if(LoginActivity.isLoggedIn){
+            btn_sign_in.visibility= Button.INVISIBLE
+            btn_registered_courses.visibility=Button.VISIBLE
+        }
+        super.onResume()
+    }
+
+
 }

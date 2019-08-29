@@ -1,5 +1,6 @@
 package com.patrickchow.anywherefitness.data
 
+import com.patrickchow.anywherefitness.R
 import java.sql.Timestamp
 
 /*
@@ -28,6 +29,15 @@ val courseNameArray = arrayOf(
     "Barre"
 )
 
+val courseBenefitsArray = arrayOf(
+    "Flexibility, Muscle",
+    "Aerobic Fitness",
+    "Cardiovascular\nFitness",
+    "Increased Muscle\nMass",
+    "Flexibility",
+    "Cardiovascular\nFitness"
+)
+
 val instructor_idArray = arrayOf(
     1,
     2,
@@ -38,10 +48,20 @@ val instructor_idArray = arrayOf(
 )
 
 val timeArray = arrayOf(
-    Timestamp(System.currentTimeMillis()).time,
-    Timestamp(System.currentTimeMillis()).time,
-    Timestamp(System.currentTimeMillis()).time,
-    Timestamp(System.currentTimeMillis()).time,
-    Timestamp(System.currentTimeMillis()).time,
-    Timestamp(System.currentTimeMillis()).time
+    "09/05/2019",
+    "09/07/2019",
+    "10/01/2019",
+    "10/02/2019",
+    "10/04/2019",
+    "10/08/2019"
+)
+
+val imageArray = arrayOf(
+    R.drawable.yoga2,
+    R.drawable.dance2,
+    R.drawable.cycleing2,
+    R.drawable.strength_training2,
+    R.drawable.pilates2,
+    R.drawable.barrev2
+
 )

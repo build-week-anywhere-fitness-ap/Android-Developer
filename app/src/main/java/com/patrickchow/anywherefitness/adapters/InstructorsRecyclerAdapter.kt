@@ -4,6 +4,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -34,7 +36,8 @@ class InstructorsRecyclerAdapter(val instructorsList: MutableList<UsersModel>): 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val instructor = instructorsList[position]
-            holder.bindModel(instructor)
+        holder.bindModel(instructor)
+        setEnterAnimation(holder.cv_trainers)
     }
 
     //Show only the cards that are instructors
@@ -50,9 +53,9 @@ class InstructorsRecyclerAdapter(val instructorsList: MutableList<UsersModel>): 
             //If the user is a client, hide the client information
             if(instructor.instructor) {
                 iv_profile_pic.setImageResource(instructor.profilePic)
-                tv_first_name.setText(instructor.firstName)
-                tv_last_name.setText(instructor.lastName)
-                tv_user_name.setText(instructor.userName)
+                tv_first_name.setText("First: ${instructor.firstName}")
+                tv_last_name.setText("Second: ${instructor.lastName}")
+                tv_user_name.setText("Username: ${instructor.userName}")
             }
             //If the user is an instructor, show the instructor's information
             else{
@@ -63,5 +66,10 @@ class InstructorsRecyclerAdapter(val instructorsList: MutableList<UsersModel>): 
                 cv_trainers.layoutParams.height = 0
             }
         }
+    }
+    fun setEnterAnimation(viewToAnimate: View) {
+
+        val animation: Animation = AnimationUtils.loadAnimation(viewToAnimate.context, R.anim.my_slide_in_right)
+        viewToAnimate.startAnimation(animation)
     }
 }

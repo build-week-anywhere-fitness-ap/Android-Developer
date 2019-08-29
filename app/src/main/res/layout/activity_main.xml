@@ -41,6 +41,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_button_container"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -94,6 +96,23 @@
             app:layout_constraintEnd_toStartOf="@+id/btn_trainers"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/btn_courses" />
+
+        <Button
+            android:id="@+id/btn_registered_courses"
+            android:text="Registered\nCourses"
+            android:textAllCaps="false"
+            android:background="@color/secondaryColor"
+            android:textColor="@color/secondaryTextColor"
+            android:textAlignment="center"
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_trainers"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btn_courses"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
