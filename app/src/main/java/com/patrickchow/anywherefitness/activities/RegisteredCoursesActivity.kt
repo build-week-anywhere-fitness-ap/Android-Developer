@@ -20,18 +20,19 @@ class RegisteredCoursesActivity : AppCompatActivity() {
             tv_no_registered_courses.visibility = TextView.INVISIBLE
 
         //Used to get CoursesActivity Context so that a Toast/Alert Dialog can be run
-        val context = this
 
         rv_registered_courses.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(this@RegisteredCoursesActivity)
 
             //A context is needed because i wanted a Toast/Alert Dialog to be shown
-            adapter = CoursesRecyclerAdapter(context, registeredCourses)
+            //Show is here to prevent the register image view from showing
+            adapter = CoursesRecyclerAdapter(context,false, registeredCourses)
         }
     }
 
     companion object{
         var registeredCourses = mutableListOf<CoursesModel>()
+        val context = this
     }
 }

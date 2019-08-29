@@ -16,13 +16,15 @@ import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.patrickchow.anywherefitness.R
+import com.patrickchow.anywherefitness.activities.CoursesActivity
 import com.patrickchow.anywherefitness.activities.LoginActivity
 import com.patrickchow.anywherefitness.activities.RegisteredCoursesActivity
 import com.patrickchow.anywherefitness.model.CoursesModel
 import kotlinx.android.synthetic.main.layout_courses_list_item.view.*
 
 //Added a context here so that a Toast/Alert Dialog can run. Normally, a context valuable wouldn't be passed in an adapter.
-class CoursesRecyclerAdapter(val context: Context, val coursesList:MutableList<CoursesModel>):RecyclerView.Adapter<CoursesRecyclerAdapter.ViewHolder>(){
+//Added a show here because I wanted a toggle to switch between the register button showing up in the Courses and not showing up in the Registered Courses
+class CoursesRecyclerAdapter(val context: Context, val show: Boolean, val coursesList:MutableList<CoursesModel>):RecyclerView.Adapter<CoursesRecyclerAdapter.ViewHolder>(){
 
     //Converts the layout_courses_list_item xml into a view
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -37,7 +39,7 @@ class CoursesRecyclerAdapter(val context: Context, val coursesList:MutableList<C
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val course = coursesList[position]
-        holder.bindModel(context, course)
+        holder.bindModel(context, show, course)
         setEnterAnimation(holder.card)
     }
 
@@ -55,7 +57,7 @@ class CoursesRecyclerAdapter(val context: Context, val coursesList:MutableList<C
 
         //Convert the views' data depending on what the course model contains
         //Added a context here so that a Toast/Alert Dialog can be run
-        fun bindModel (context: Context, coursesModel: CoursesModel){
+        fun bindModel (context: Context, show: Boolean, coursesModel: CoursesModel){
 
             //Sets the image of the course
             courses_image.setImageResource(coursesModel.image)
@@ -77,14 +79,20 @@ class CoursesRecyclerAdapter(val context: Context, val coursesList:MutableList<C
             //Sets the time of the course
             courses_time.setText(coursesModel.time)
 
+            if(!show)
+                courses_register.visibility = ImageView.INVISIBLE
+
             //When a user clicks on a button to register for, the registered class is put into the list
             courses_register.setOnClickListener {
                 if(LoginActivity.isLoggedIn == false){
-                    loginToast(context)
 
+                    //Display a toast telling the user the log in first
+                    loginToast(context)
                 }
+
                 else{
-                    addedToast(context)
+                    //Display a toast telling the user they have successfully registered for the course
+                    addedToast(context, coursesModel.courseName, coursesModel.time)
                     RegisteredCoursesActivity.registeredCourses.add(CoursesModel(coursesModel.id, coursesModel.courseName, coursesModel.benefits,
                         coursesModel.instructor_id, coursesModel.time, coursesModel.image))
                     }
@@ -104,10 +112,8 @@ class CoursesRecyclerAdapter(val context: Context, val coursesList:MutableList<C
     }
 
     //If the user is logged in, show a message that the user has registered for the course
-    fun addedToast(context: Context){
-        val toast = Toast.makeText(context, "You have registered for the course successfully", Toast.LENGTH_SHORT)
+    fun addedToast(context: Context, courseName: String, courseTime: String){
+        val toast = Toast.makeText(context, "You have successfully registered for the course $courseName\n" +
+                                                 "See you on the $courseTime", Toast.LENGTH_LONG)
         toast.show()
     }
-
-
-

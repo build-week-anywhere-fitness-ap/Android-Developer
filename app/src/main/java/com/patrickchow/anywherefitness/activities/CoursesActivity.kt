@@ -36,7 +36,8 @@ class CoursesActivity : AppCompatActivity() {
             layoutManager = LinearLayoutManager(this@CoursesActivity)
 
             //A context is needed because i wanted a Toast/Alert Dialog to be shown
-            adapter = CoursesRecyclerAdapter(context, CoursesRepository.coursesList)
+            //Show is here to prevent the register image view from showing
+            adapter = CoursesRecyclerAdapter(context, true, CoursesRepository.coursesList)
         }
     }
 }
