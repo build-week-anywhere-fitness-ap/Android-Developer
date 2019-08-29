@@ -35,4 +35,5 @@ class CoursesActivity : AppCompatActivity() {
             adapter = CoursesRecyclerAdapter(CoursesRepository.coursesList)
         }
     }
+
 }

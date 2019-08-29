@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
+import androidx.appcompat.app.AlertDialog
 import com.patrickchow.anywherefitness.R
 import com.patrickchow.anywherefitness.model.CoursesModel
 import com.patrickchow.anywherefitness.repositories.CoursesRepository
@@ -52,8 +53,17 @@ class MainActivity : AppCompatActivity() {
 
         //Intent to move to the shopping list details
         btn_courses.setOnClickListener {
-            val pricingIntent = Intent(this, CoursesActivity::class.java)
-            startActivity(pricingIntent)
+            if(LoginActivity.isLoggedIn == false){
+                val builder = AlertDialog.Builder(this@MainActivity)
+                builder.setTitle("                  Please Login First")
+                builder.setMessage("\n")
+                val dialog: AlertDialog = builder.create()
+                dialog.show()
+            }
+            else {
+                val pricingIntent = Intent(this, CoursesActivity::class.java)
+                startActivity(pricingIntent)
+            }
         }
 
         //Intent to move to the Login Screen

@@ -1,5 +1,6 @@
 package com.patrickchow.anywherefitness.adapters
 
+import android.app.AlertDialog
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,8 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.patrickchow.anywherefitness.R
+import com.patrickchow.anywherefitness.activities.CoursesActivity
+import com.patrickchow.anywherefitness.activities.LoginActivity
 import com.patrickchow.anywherefitness.activities.MainActivity
 import com.patrickchow.anywherefitness.activities.RegisteredCoursesActivity
 import com.patrickchow.anywherefitness.model.CoursesModel
