@@ -2,7 +2,11 @@ package com.patrickchow.anywherefitness.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.patrickchow.anywherefitness.R
+import com.patrickchow.anywherefitness.adapters.InstructorsRecyclerAdapter
+import com.patrickchow.anywherefitness.repositories.UsersRepository
+import kotlinx.android.synthetic.main.activity_trainer_list.*
 
 
 /*
@@ -18,6 +22,13 @@ class TrainerListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_trainer_list)
 
-        setTitle("Trainer Details")
+        setTitle("Trainer Details ")
+        UsersRepository.createUsersList()
+
+        rv_instructors.apply {
+            setHasFixedSize(true)
+            layoutManager = LinearLayoutManager(this@TrainerListActivity)
+            adapter = InstructorsRecyclerAdapter(UsersRepository.usersList)
+        }
     }
 }

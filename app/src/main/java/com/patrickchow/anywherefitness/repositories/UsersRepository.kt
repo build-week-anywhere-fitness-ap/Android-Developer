@@ -11,7 +11,7 @@ class UsersRepository {
         var usersList = mutableListOf<UsersModel>()
         fun createUsersList(){
             for(index in 0 until firstName.size){
-                usersList.add(UsersModel(firstName[index], secondName[index], userName[index],
+                usersList.add(UsersModel(profilePic[index],firstName[index], secondName[index], userName[index],
                                          passWord[index], client[index], instructor[index]))
                 }
         }

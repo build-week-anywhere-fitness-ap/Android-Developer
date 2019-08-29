@@ -32,6 +32,7 @@
 
     <ImageView
         android:id="@+id/iv_share"
+        android:elevation="50dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toTopOf="@id/cl_button_container"
         android:layout_margin="16dp"
