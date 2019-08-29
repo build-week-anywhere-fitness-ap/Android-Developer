@@ -27,10 +27,12 @@ val profilePic = arrayOf(
     R.drawable.default_profile_picture,
     R.drawable.default_profile_picture,
     R.drawable.default_profile_picture,
+    R.drawable.default_profile_picture,
     R.drawable.default_profile_picture
 )
 
 val firstName = arrayOf(
+    "adam",
     "Patrick",
     "Benny",
     "David",
@@ -46,6 +48,7 @@ val firstName = arrayOf(
 )
 
 val secondName = arrayOf(
+    "adam",
     "Chow",
     "Smith",
     "Lee",
@@ -61,6 +64,7 @@ val secondName = arrayOf(
 )
 
 val userName = arrayOf(
+    "admin",
     "PatrickChow0803",
     "Machomacho2",
     "DavidLifts111",
@@ -76,6 +80,7 @@ val userName = arrayOf(
 )
 
 val passWord = arrayOf(
+    "admin",
     "abc123",
     "password",
     "111222",
@@ -97,6 +102,7 @@ val client = arrayOf(
     false,
     false,
     false,
+    false,
     true,
     true,
     false,
@@ -106,6 +112,7 @@ val client = arrayOf(
 )
 
 val instructor = arrayOf(
+    true,
     true,
     true,
     false,
