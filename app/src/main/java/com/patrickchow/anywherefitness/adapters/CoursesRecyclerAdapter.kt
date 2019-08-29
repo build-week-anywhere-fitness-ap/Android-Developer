@@ -1,5 +1,6 @@
 package com.patrickchow.anywherefitness.adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,14 +8,17 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.patrickchow.anywherefitness.R
+import com.patrickchow.anywherefitness.activities.LoginActivity
 import com.patrickchow.anywherefitness.activities.RegisteredCoursesActivity
 import com.patrickchow.anywherefitness.model.CoursesModel
 import kotlinx.android.synthetic.main.layout_courses_list_item.view.*
 
-class CoursesRecyclerAdapter(val coursesList:MutableList<CoursesModel>):RecyclerView.Adapter<CoursesRecyclerAdapter.ViewHolder>(){
+//Added a context here so that a Toast/Alert Dialog can run. Normally, a context valuable wouldn't be passed in an adapter.
+class CoursesRecyclerAdapter(val context: Context, val coursesList:MutableList<CoursesModel>):RecyclerView.Adapter<CoursesRecyclerAdapter.ViewHolder>(){
 
     //Converts the layout_courses_list_item xml into a view
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -29,53 +33,62 @@ class CoursesRecyclerAdapter(val coursesList:MutableList<CoursesModel>):Recycler
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val course = coursesList[position]
-        holder.bindModel(course)
-
+        holder.bindModel(context, course)
         setEnterAnimation(holder.card)
     }
 
     class ViewHolder (view: View): RecyclerView.ViewHolder(view){
 
         //Get hold of the views that are in layout_courses_list_item.xml
+        val courses_image: ImageView = view.iv_course
         val card : CardView = view.cv_holder
-        val courses_id : TextView = view.tv_id
+        //val courses_id : TextView = view.tv_id
         val courses_name : TextView= view.tv_course_name
+        val courses_benefits: TextView = view.tv_course_benefits
         val courses_instructor_id : TextView= view.tv_instructor
         val courses_time :TextView = view.tv_time
         val courses_register: ImageView = view.iv_register
-        val courses_image: ImageView = view.iv_course
 
         //Convert the views' data depending on what the course model contains
-        fun bindModel (coursesModel: CoursesModel){
+        //Added a context here so that a Toast/Alert Dialog can be run
+        fun bindModel (context: Context, coursesModel: CoursesModel){
+
+            //Sets the image of the course
+            courses_image.setImageResource(coursesModel.image)
+
             //Convert the id(int) into a string first before applying it to setText
-            val courseIdToString = coursesModel.id.toString()
-            courses_id.setText(courseIdToString)
+            //val courseIdToString = coursesModel.id.toString()
+            //courses_id.setText(courseIdToString)
 
             //Don't have to do any conversion here because courseName is already a string
             courses_name.setText(coursesModel.courseName)
 
+            //Sets the benefits of the course
+            courses_benefits.setText(coursesModel.benefits)
+
             //Convert the instructor id(int) into a string first before applying it to setText
-            val instructorIdToString = coursesModel.instructor_id.toString()
+            val instructorIdToString = "Course ID: ${coursesModel.instructor_id.toString()}"
             courses_instructor_id.setText(instructorIdToString)
 
-            //Convert the time(long) into a string first before applying it to setText
-            val timeToString = coursesModel.time.toString()
-            courses_time.setText(timeToString)
+            //Sets the time of the course
+            courses_time.setText(coursesModel.time)
 
             //When a user clicks on a button to register for, the registered class is put into the list
             courses_register.setOnClickListener {
-                RegisteredCoursesActivity.registeredCourses.add(CoursesModel(coursesModel.id, coursesModel.courseName,
-                                                   coursesModel.instructor_id, coursesModel.time, coursesModel.image)
-                )
+                if(LoginActivity.isLoggedIn == false){
+                    makeToast(context)
+                RegisteredCoursesActivity.registeredCourses.add(CoursesModel(coursesModel.id, coursesModel.courseName, coursesModel.benefits,
+                                                                             coursesModel.instructor_id, coursesModel.time, coursesModel.image))
+                }
+                }
             }
-
-            courses_image.setImageResource(coursesModel.image)
         }
     }
-
     fun setEnterAnimation(viewToAnimate: View) {
-
         val animation: Animation = AnimationUtils.loadAnimation(viewToAnimate.context, R.anim.abc_fade_in)
         viewToAnimate.startAnimation(animation)
     }
+    fun makeToast(context: Context) {
+        val toast = Toast.makeText(context, "mistake", Toast.LENGTH_SHORT)
+        toast.show()
 }

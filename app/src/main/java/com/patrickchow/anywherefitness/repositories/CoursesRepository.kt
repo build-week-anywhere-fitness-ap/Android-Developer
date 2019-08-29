@@ -11,7 +11,7 @@ class CoursesRepository {
         var coursesList = mutableListOf<CoursesModel>()
         fun createCoursesList(){
             for(index in 0 until courseIdArray.size){
-                coursesList.add(CoursesModel(courseIdArray[index], courseNameArray[index],
+                coursesList.add(CoursesModel(courseIdArray[index], courseNameArray[index], courseBenefitsArray[index],
                                             instructor_idArray[index], timeArray[index], imageArray[index]))
             }
         }

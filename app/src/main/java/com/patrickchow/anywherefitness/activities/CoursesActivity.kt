@@ -1,5 +1,6 @@
 package com.patrickchow.anywherefitness.activities
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -27,13 +28,15 @@ class CoursesActivity : AppCompatActivity() {
 
         setTitle("Classes Available")
 
-
+        //Used to get CoursesActivity Context so that a Toast/Alert Dialog can be run
+        val context = this
 
         rv_courses.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(this@CoursesActivity)
-            adapter = CoursesRecyclerAdapter(CoursesRepository.coursesList)
+
+            //A context is needed because i wanted a Toast/Alert Dialog to be shown
+            adapter = CoursesRecyclerAdapter(context, CoursesRepository.coursesList)
         }
     }
-
 }
