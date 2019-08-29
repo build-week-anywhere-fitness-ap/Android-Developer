@@ -23,7 +23,6 @@ class TrainerListActivity : AppCompatActivity() {
         setContentView(R.layout.activity_trainer_list)
 
         setTitle("Trainer Details ")
-        UsersRepository.createUsersList()
 
         rv_instructors.apply {
             setHasFixedSize(true)

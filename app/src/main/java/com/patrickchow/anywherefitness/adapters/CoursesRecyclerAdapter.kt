@@ -3,7 +3,10 @@ package com.patrickchow.anywherefitness.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.patrickchow.anywherefitness.R
 import com.patrickchow.anywherefitness.model.CoursesModel
@@ -24,16 +27,19 @@ class CoursesRecyclerAdapter(val coursesList:MutableList<CoursesModel>):Recycler
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val course = coursesList[position]
         holder.bindModel(course)
+
+        setEnterAnimation(holder.card)
     }
 
 
     class ViewHolder (view: View): RecyclerView.ViewHolder(view){
 
         //Get hold of the views that are in layout_courses_list_item.xml
-        val courses_id : TextView = itemView.tv_id
-        val courses_name : TextView= itemView.tv_course_name
-        val courses_instructor_id : TextView= itemView.tv_instructor
-        val courses_time :TextView = itemView.tv_time
+        val card : CardView = view.cv_holder
+        val courses_id : TextView = view.tv_id
+        val courses_name : TextView= view.tv_course_name
+        val courses_instructor_id : TextView= view.tv_instructor
+        val courses_time :TextView = view.tv_time
 
         //Convert the views' data depending on what the course model contains
         fun bindModel (coursesModel: CoursesModel){
@@ -54,4 +60,9 @@ class CoursesRecyclerAdapter(val coursesList:MutableList<CoursesModel>):Recycler
         }
     }
 
+    fun setEnterAnimation(viewToAnimate: View) {
+
+        val animation: Animation = AnimationUtils.loadAnimation(viewToAnimate.context, R.anim.abc_fade_in)
+        viewToAnimate.startAnimation(animation)
+    }
 }

@@ -27,7 +27,7 @@ class CoursesActivity : AppCompatActivity() {
 
         setTitle("Classes Available")
 
-        CoursesRepository.createCoursesList()
+
 
         rv_courses.apply {
             setHasFixedSize(true)
