@@ -106,9 +106,8 @@ class CoursesRecyclerAdapter(val context: Context, val show: Boolean, val course
                         //Display a toast telling the user they have successfully registered for the course
                         addedToast(context, coursesModel.courseName, coursesModel.time)
                         RegisteredCoursesActivity.registeredCourses.add(
-                            CoursesModel(
-                                coursesModel.id, coursesModel.courseName, coursesModel.benefits,
-                                coursesModel.instructor_id, coursesModel.time, coursesModel.image
+                            CoursesModel(coursesModel.id, coursesModel.courseName, coursesModel.benefits,
+                                         coursesModel.instructor_id, coursesModel.time, coursesModel.image
                             )
                         )
                     }
@@ -117,6 +116,7 @@ class CoursesRecyclerAdapter(val context: Context, val show: Boolean, val course
             }
         }
     }
+    //A fade in animation is used for the cards
     fun setEnterAnimation(viewToAnimate: View) {
         val animation: Animation = AnimationUtils.loadAnimation(viewToAnimate.context, R.anim.abc_fade_in)
         viewToAnimate.startAnimation(animation)
@@ -135,6 +135,7 @@ class CoursesRecyclerAdapter(val context: Context, val show: Boolean, val course
         toast.show()
     }
 
+    //If the user already applied for the course, show a message telling the user that they can't reapply.
     fun alreadyAddedToast(context: Context){
         val toast = Toast.makeText(context, "You are already registered for that course", Toast.LENGTH_SHORT)
         toast.show()
