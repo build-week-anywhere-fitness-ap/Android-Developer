@@ -1,5 +1,8 @@
 package com.patrickchow.anywherefitness.data
 
+import androidx.core.content.ContextCompat
+import com.patrickchow.anywherefitness.R
+
 /*
 Data for users
 data class UsersModel(
@@ -12,13 +15,34 @@ data class UsersModel(
 )
  */
 
+val profilePic = arrayOf(
+    R.drawable.default_profile_picture,
+    R.drawable.default_profile_picture,
+    R.drawable.default_profile_picture,
+    R.drawable.default_profile_picture,
+    R.drawable.default_profile_picture,
+    R.drawable.default_profile_picture,
+    R.drawable.default_profile_picture,
+    R.drawable.default_profile_picture,
+    R.drawable.default_profile_picture,
+    R.drawable.default_profile_picture,
+    R.drawable.default_profile_picture,
+    R.drawable.default_profile_picture
+)
+
 val firstName = arrayOf(
     "Patrick",
     "Benny",
     "David",
     "Grace",
     "Amy",
-    "Kevin"
+    "Kevin",
+    "Irene",
+    "May",
+    "Bryan",
+    "James",
+    "Alex",
+    "Chris"
 )
 
 val secondName = arrayOf(
@@ -27,7 +51,13 @@ val secondName = arrayOf(
     "Lee",
     "Jones",
     "Rakin",
-    "Lau"
+    "Lau",
+    "Will",
+    "rose",
+    "Chan",
+    "Norton",
+    "Lily",
+    "Hooper"
 )
 
 val userName = arrayOf(
@@ -36,7 +66,13 @@ val userName = arrayOf(
     "DavidLifts111",
     "Protein4Life",
     "swolLyfe",
-    "KevinxD"
+    "KevinxD",
+    "IrenexD",
+    "MayxD",
+    "userNameeee",
+    "realUser",
+    "oilHead",
+    "NightWhisper"
 )
 
 val passWord = arrayOf(
@@ -45,16 +81,28 @@ val passWord = arrayOf(
     "111222",
     "lovelovelove",
     "drowssap",
-    "password123"
+    "password123",
+    "123123",
+    "lolololol",
+    "realpassword",
+    "CatsAndDogs",
+    "keyboardKing",
+    "sdwasss"
 )
 
 val client = arrayOf(
     false,
     false,
+    false,
+    false,
+    false,
+    false,
     true,
     true,
     false,
-    true
+    true,
+    true,
+    false
 )
 
 val instructor = arrayOf(
@@ -62,6 +110,12 @@ val instructor = arrayOf(
     true,
     false,
     false,
+    false,
     true,
-    false
+    false,
+    false,
+    false,
+    false,
+    true,
+    true
 )
