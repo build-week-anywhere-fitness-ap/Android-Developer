@@ -1,5 +1,6 @@
 package com.patrickchow.anywherefitness.data
 
+import com.patrickchow.anywherefitness.R
 import java.sql.Timestamp
 
 /*
@@ -44,4 +45,13 @@ val timeArray = arrayOf(
     Timestamp(System.currentTimeMillis()).time,
     Timestamp(System.currentTimeMillis()).time,
     Timestamp(System.currentTimeMillis()).time
+)
+
+val imageArray = arrayOf(
+    R.drawable.default_profile_picture,
+    R.drawable.default_profile_picture,
+    R.drawable.default_profile_picture,
+    R.drawable.default_profile_picture,
+    R.drawable.default_profile_picture,
+    R.drawable.default_profile_picture
 )

@@ -53,9 +53,9 @@ class InstructorsRecyclerAdapter(val instructorsList: MutableList<UsersModel>): 
             //If the user is a client, hide the client information
             if(instructor.instructor) {
                 iv_profile_pic.setImageResource(instructor.profilePic)
-                tv_first_name.setText(instructor.firstName)
-                tv_last_name.setText(instructor.lastName)
-                tv_user_name.setText(instructor.userName)
+                tv_first_name.setText("First: ${instructor.firstName}")
+                tv_last_name.setText("Second: ${instructor.lastName}")
+                tv_user_name.setText("Username: ${instructor.userName}")
             }
             //If the user is an instructor, show the instructor's information
             else{

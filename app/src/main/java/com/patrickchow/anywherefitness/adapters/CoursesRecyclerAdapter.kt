@@ -1,7 +1,5 @@
 package com.patrickchow.anywherefitness.adapters
 
-import android.app.AlertDialog
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,9 +10,6 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.patrickchow.anywherefitness.R
-import com.patrickchow.anywherefitness.activities.CoursesActivity
-import com.patrickchow.anywherefitness.activities.LoginActivity
-import com.patrickchow.anywherefitness.activities.MainActivity
 import com.patrickchow.anywherefitness.activities.RegisteredCoursesActivity
 import com.patrickchow.anywherefitness.model.CoursesModel
 import kotlinx.android.synthetic.main.layout_courses_list_item.view.*
@@ -48,6 +43,7 @@ class CoursesRecyclerAdapter(val coursesList:MutableList<CoursesModel>):Recycler
         val courses_instructor_id : TextView= view.tv_instructor
         val courses_time :TextView = view.tv_time
         val courses_register: ImageView = view.iv_register
+        val courses_image: ImageView = view.iv_course
 
         //Convert the views' data depending on what the course model contains
         fun bindModel (coursesModel: CoursesModel){
@@ -69,9 +65,11 @@ class CoursesRecyclerAdapter(val coursesList:MutableList<CoursesModel>):Recycler
             //When a user clicks on a button to register for, the registered class is put into the list
             courses_register.setOnClickListener {
                 RegisteredCoursesActivity.registeredCourses.add(CoursesModel(coursesModel.id, coursesModel.courseName,
-                                                   coursesModel.instructor_id, coursesModel.time)
+                                                   coursesModel.instructor_id, coursesModel.time, coursesModel.image)
                 )
             }
+
+            courses_image.setImageResource(coursesModel.image)
         }
     }
 

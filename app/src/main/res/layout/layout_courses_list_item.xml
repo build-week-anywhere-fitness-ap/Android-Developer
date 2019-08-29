@@ -58,6 +58,10 @@
                 android:elevation="50dp"
                 android:layout_width="100dp"
                 android:layout_height="100dp"/>
+            <ImageView
+                android:id="@+id/iv_course"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </LinearLayout>

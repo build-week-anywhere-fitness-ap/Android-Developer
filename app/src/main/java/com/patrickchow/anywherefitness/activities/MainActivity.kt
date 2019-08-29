@@ -23,8 +23,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-
         CoursesRepository.createCoursesList()
         UsersRepository.createUsersList()
         PassesRepository.createPassessList()
