@@ -7,6 +7,7 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.ImageView
 import com.patrickchow.anywherefitness.R
 import com.patrickchow.anywherefitness.model.CoursesModel
@@ -84,6 +85,16 @@ class MainActivity : AppCompatActivity() {
             view.setImageDrawable(gifDrawable)
             (gifDrawable as AnimatedImageDrawable).start()
         }
+    }
+
+    //If a user is logged in, change the visibility of the log in button to invisible
+    //and set the visibility of registered courses button to visible
+    override fun onResume() {
+        if(LoginActivity.isLoggedIn){
+            btn_sign_in.visibility= Button.INVISIBLE
+            btn_registered_courses.visibility=Button.VISIBLE
+        }
+        super.onResume()
     }
 
 

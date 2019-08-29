@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".activities.CoursesActivity">
 
+    <TextView
+        android:id="@+id/tv_no_registered_courses"
+        android:text="No Courses have been registered yet.\nYou may register for Courses on the Courses page."
+        android:textAlignment="center"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="64dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_registered_courses"
         app:layout_constraintLeft_toLeftOf="parent"

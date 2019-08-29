@@ -45,9 +45,6 @@ class LoginActivity : AppCompatActivity() {
 
     fun errorToast(){
         val welcomeToast = Toast.makeText(this, "Either wrong name or password entered", Toast.LENGTH_SHORT)
-
-        //Makes the toast appear in the middle of the screen
-        //welcomeToast.setGravity(0,0,0)
         welcomeToast.show()
     }
 
