@@ -48,10 +48,11 @@ val timeArray = arrayOf(
 )
 
 val imageArray = arrayOf(
-    R.drawable.default_profile_picture,
-    R.drawable.default_profile_picture,
-    R.drawable.default_profile_picture,
-    R.drawable.default_profile_picture,
-    R.drawable.default_profile_picture,
-    R.drawable.default_profile_picture
+    R.drawable.yoga2,
+    R.drawable.dance2,
+    R.drawable.cycleing2,
+    R.drawable.strength_training2,
+    R.drawable.pilates2,
+    R.drawable.barrev2
+
 )

@@ -51,17 +51,17 @@ class MainActivity : AppCompatActivity() {
 
         //Intent to move to the shopping list details
         btn_courses.setOnClickListener {
-            if(LoginActivity.isLoggedIn == false){
+            /*if(LoginActivity.isLoggedIn == false){
                 val builder = AlertDialog.Builder(this@MainActivity)
                 builder.setTitle("                  Please Login First")
                 builder.setMessage("\n")
                 val dialog: AlertDialog = builder.create()
                 dialog.show()
-            }
-            else {
+            }*/
+            //else {
                 val pricingIntent = Intent(this, CoursesActivity::class.java)
                 startActivity(pricingIntent)
-            }
+            //}
         }
 
         //Intent to move to the Login Screen
