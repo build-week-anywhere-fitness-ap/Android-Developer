@@ -12,15 +12,13 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.patrickchow.anywherefitness.R
 import com.patrickchow.anywherefitness.activities.MainActivity
+import com.patrickchow.anywherefitness.activities.RegisteredCoursesActivity
 import com.patrickchow.anywherefitness.model.CoursesModel
 import kotlinx.android.synthetic.main.layout_courses_list_item.view.*
 
 class CoursesRecyclerAdapter(val coursesList:MutableList<CoursesModel>):RecyclerView.Adapter<CoursesRecyclerAdapter.ViewHolder>(){
 
-    companion object{
-        var registeredCourses = mutableListOf<CoursesModel>()
-    }
-
+    //Converts the layout_courses_list_item xml into a view
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.layout_courses_list_item, parent, false) as View
@@ -37,7 +35,6 @@ class CoursesRecyclerAdapter(val coursesList:MutableList<CoursesModel>):Recycler
 
         setEnterAnimation(holder.card)
     }
-
 
     class ViewHolder (view: View): RecyclerView.ViewHolder(view){
 
@@ -68,7 +65,7 @@ class CoursesRecyclerAdapter(val coursesList:MutableList<CoursesModel>):Recycler
 
             //When a user clicks on a button to register for, the registered class is put into the list
             courses_register.setOnClickListener {
-                registeredCourses.add(CoursesModel(coursesModel.id, coursesModel.courseName,
+                RegisteredCoursesActivity.registeredCourses.add(CoursesModel(coursesModel.id, coursesModel.courseName,
                                                    coursesModel.instructor_id, coursesModel.time)
                 )
             }

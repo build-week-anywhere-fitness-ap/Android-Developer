@@ -38,6 +38,11 @@ class MainActivity : AppCompatActivity() {
             mainWebpageShare()
         }
 
+        btn_registered_courses.setOnClickListener {
+            val registeredCoursesIntent = Intent(this, RegisteredCoursesActivity::class.java)
+            startActivity(registeredCoursesIntent)
+        }
+
         //Intent to move to the list of trainer details
         btn_trainers.setOnClickListener {
             val trainerIntent = Intent(this, TrainerListActivity::class.java)
