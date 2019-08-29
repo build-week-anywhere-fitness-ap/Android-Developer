@@ -1,18 +1,25 @@
 package com.patrickchow.anywherefitness.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.patrickchow.anywherefitness.R
+import com.patrickchow.anywherefitness.activities.MainActivity
 import com.patrickchow.anywherefitness.model.CoursesModel
 import kotlinx.android.synthetic.main.layout_courses_list_item.view.*
 
 class CoursesRecyclerAdapter(val coursesList:MutableList<CoursesModel>):RecyclerView.Adapter<CoursesRecyclerAdapter.ViewHolder>(){
+
+    companion object{
+        var registeredCourses = mutableListOf<CoursesModel>()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
@@ -40,6 +47,7 @@ class CoursesRecyclerAdapter(val coursesList:MutableList<CoursesModel>):Recycler
         val courses_name : TextView= view.tv_course_name
         val courses_instructor_id : TextView= view.tv_instructor
         val courses_time :TextView = view.tv_time
+        val courses_register: ImageView = view.iv_register
 
         //Convert the views' data depending on what the course model contains
         fun bindModel (coursesModel: CoursesModel){
@@ -57,6 +65,13 @@ class CoursesRecyclerAdapter(val coursesList:MutableList<CoursesModel>):Recycler
             //Convert the time(long) into a string first before applying it to setText
             val timeToString = coursesModel.time.toString()
             courses_time.setText(timeToString)
+
+            //When a user clicks on a button to register for, the registered class is put into the list
+            courses_register.setOnClickListener {
+                registeredCourses.add(CoursesModel(coursesModel.id, coursesModel.courseName,
+                                                   coursesModel.instructor_id, coursesModel.time)
+                )
+            }
         }
     }
 

@@ -11,15 +11,13 @@ import com.patrickchow.anywherefitness.R
 class LoginViewCustom (context: Context, attrs: AttributeSet?): LinearLayout(context, attrs){
 
     init {
+        val list = mutableListOf<EditText>()
+
         //Have typedArray hold the data inside of attrs.xml with the declare-styleable name = LoginViewCustom
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.LoginViewCustom)
 
         val textSize = typedArray.getDimension(R.styleable.LoginViewCustom_textSize, 16f)
         val maxLines = typedArray.getInt(R.styleable.LoginViewCustom_maxLines, 1)
-        val textWeight = typedArray.getFloat(R.styleable.LoginViewCustom_layout_weight, 8f)
-        val editUserHint = typedArray.getString(R.styleable.LoginViewCustom_hint)
-        val textColorHint = typedArray.getColor(R.styleable.LoginViewCustom_textColorHint, Color.RED)
-        val textStyle = typedArray.getString(R.styleable.LoginViewCustom_textStyle)
         typedArray.recycle()
 
         //Create an imageView with a logo. It should be placed on top of the login.
@@ -38,10 +36,18 @@ class LoginViewCustom (context: Context, attrs: AttributeSet?): LinearLayout(con
         editPassUser.textSize = textSize
         editPassUser.maxLines = maxLines
 
+        val login = Button(context)
+        login.setOnClickListener {
+            finish()
+        }
+
         orientation = VERTICAL
         addView(logo)
         addView(editViewUser)
         addView(editPassUser)
+    }
 
+    fun finish() {
+        throw RuntimeException("Stub!")
     }
 }

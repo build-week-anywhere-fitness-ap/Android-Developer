@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
 import com.patrickchow.anywherefitness.R
+import com.patrickchow.anywherefitness.model.CoursesModel
 import com.patrickchow.anywherefitness.repositories.CoursesRepository
 import com.patrickchow.anywherefitness.repositories.PassesRepository
 import com.patrickchow.anywherefitness.repositories.UsersRepository
@@ -19,6 +20,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
 
         CoursesRepository.createCoursesList()
         UsersRepository.createUsersList()
@@ -76,5 +79,9 @@ class MainActivity : AppCompatActivity() {
             view.setImageDrawable(gifDrawable)
             (gifDrawable as AnimatedImageDrawable).start()
         }
+    }
+
+    companion object{
+
     }
 }

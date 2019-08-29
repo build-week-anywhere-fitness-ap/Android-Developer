@@ -20,7 +20,7 @@ class LoginActivity : AppCompatActivity() {
         setTitle("Login")
 
         btn_sign_in.setOnClickListener {
-            toastMe("Patrick")
+            toastMe("")
             finish()
         }
 
@@ -29,8 +29,11 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    // A toast to welcome the user upon signing in.
     fun toastMe(name: String){
         val welcomeToast = Toast.makeText(this, "Welcome $name", Toast.LENGTH_SHORT)
+
+        //Makes the toast appear in the middle of the screen
         welcomeToast.setGravity(0,0,0)
         welcomeToast.show()
     }
