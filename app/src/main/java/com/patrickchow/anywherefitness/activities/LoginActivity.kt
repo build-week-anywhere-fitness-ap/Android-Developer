@@ -1,7 +1,9 @@
 package com.patrickchow.anywherefitness.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.patrickchow.anywherefitness.R
 import com.patrickchow.anywherefitness.customViews.LoginViewCustom
@@ -29,8 +31,18 @@ class LoginActivity : AppCompatActivity() {
                     finish()
                 }
             }
-            if(isLoggedIn == false)
-                errorToast()
+            if(isLoggedIn == false){
+                errorToast(false)
+            }
+        }
+
+        btn_cancel.setOnClickListener {
+            finish()
+        }
+
+        btn_to_register.setOnClickListener {
+            val registerIntent = Intent(this, RegisterActivity::class.java)
+            startActivity(registerIntent)
         }
     }
 
@@ -43,8 +55,13 @@ class LoginActivity : AppCompatActivity() {
         welcomeToast.show()
     }
 
-    fun errorToast(){
-        val welcomeToast = Toast.makeText(this, "Either wrong name or password entered", Toast.LENGTH_SHORT)
+    fun errorToast(confirmed: Boolean){
+        var errorMessage: String
+        if(confirmed)
+             errorMessage = "Either wrong name or password entered\n"
+        else
+            errorMessage = "Please click on confirm credentials with a correct username and password"
+        val welcomeToast = Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT)
         welcomeToast.show()
     }
 

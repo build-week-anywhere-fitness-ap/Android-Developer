@@ -131,7 +131,8 @@ class CoursesRecyclerAdapter(val context: Context, val show: Boolean, val course
     //If the user is logged in, show a message that the user has registered for the course
     fun addedToast(context: Context, courseName: String, courseTime: String){
         val toast = Toast.makeText(context, "You have successfully registered for the course $courseName\n" +
-                                                 "See you on the $courseTime", Toast.LENGTH_LONG)
+                                                  "See you on the $courseTime\n" +
+                                                  "You may view your list of registered courses on the main menu", Toast.LENGTH_LONG)
         toast.show()
     }
 

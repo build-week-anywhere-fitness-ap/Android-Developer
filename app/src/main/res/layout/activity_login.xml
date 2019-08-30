@@ -58,4 +58,15 @@
         app:layout_constraintStart_toEndOf="@+id/btn_sign_in"
         app:layout_constraintTop_toBottomOf="@id/customView" />
 
+    <Button
+        android:id="@+id/btn_to_register"
+        android:text="Register New Account"
+        android:background="@color/primaryLightColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textColor="@color/primaryTextColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

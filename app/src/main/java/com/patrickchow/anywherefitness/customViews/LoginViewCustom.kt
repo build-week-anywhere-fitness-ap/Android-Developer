@@ -50,6 +50,7 @@ class LoginViewCustom (context: Context, attrs: AttributeSet?): LinearLayout(con
         btnConfirmData.setOnClickListener {
             userName = editViewUser.text.toString()
             password = editPassUser.text.toString()
+            confirm = true
         }
 
         orientation = VERTICAL
@@ -63,5 +64,6 @@ class LoginViewCustom (context: Context, attrs: AttributeSet?): LinearLayout(con
     companion object{
         var userName = ""
         var password = ""
+        var confirm = false
     }
 }
